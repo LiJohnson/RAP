@@ -1,1 +1,7 @@
 $json
+
+#if( $request.getParameter('type') == 'md' )
+	<script type="text/javascript" src="$!projectContext/stat/js/util/md.js" charset="UTF-8" ></script>
+#elseif($request.getParameter('type') == 'postman')
+	<script type="text/javascript" src="$!projectContext/stat/js/util/postman.js" charset="UTF-8" ></script>
+#end

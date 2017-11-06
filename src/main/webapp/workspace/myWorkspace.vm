@@ -120,6 +120,16 @@
                                 alt="RAP支持"/>在线客服</a>
                     </li>
                     <li>
+                        <a href="$openAPI.queryRAPModel?projectId=$projectId&type=postman" target="_blank" title="导出postman">
+                            <span class="glyphicon glyphicon-floppy-save"></span>&nbsp;导出postman
+                        </a>
+                    </li>
+                    <li>
+                        <a href="$openAPI.queryRAPModel?projectId=$projectId&type=md" target="_blank" title="导出MD">
+                            <span class="glyphicon glyphicon-floppy-save"></span>&nbsp;导出MD
+                        </a>
+                    </li>
+                    <li>
                         <a href="$openAPI.queryRAPModel?projectId=$projectId" target="_blank" title="用于备份(导出),将JSON数据另存为,在导入时粘贴即可还原此时的文档.">
                             <span class="glyphicon glyphicon-floppy-save"></span>&nbsp;导出备份
                         </a>
