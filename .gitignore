@@ -5,4 +5,7 @@ build
 .idea
 *.iml
 .DS_Store
-bak
+bak.gradle
+logs
+.gradle/
+gradle/

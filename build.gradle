@@ -1,0 +1,65 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'war'
+apply from: 'http://gradle.sit.hengtech.com.cn/gretty.plugin'
+group = 'groupId'
+version = '0.14.16-SNAPSHOT'
+
+description = """"""
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+configurations {
+    all*.exclude group: 'javassist', module: 'javassist'
+}
+
+
+repositories {
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'redis.clients', name: 'jedis', version:'2.7.2'
+    compile group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version:'1.8.8'
+    compile(group: 'org.apache.struts', name: 'struts2-core', version:'2.3.32') {
+        //exclude group: 'javassist', module: 'javassist'
+    }
+    //compile group: 'org.javassist', name: 'javassist', version:'3.22.0-CR1'
+    compile group: 'org.springframework', name: 'spring-orm', version:'4.2.4.RELEASE'
+    compile group: 'dk.brics.automaton', name: 'automaton', version:'1.11-8'
+    compile group: 'org.apache.velocity', name: 'velocity', version:'1.7'
+    compile group: 'org.springframework', name: 'spring-context', version:'4.2.4.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context-support', version:'4.2.4.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version:'4.2.4.RELEASE'
+    compile group: 'org.apache.velocity', name: 'velocity-tools', version:'2.0'
+    compile group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version:'2.3.1'
+    compile group: 'org.apache.struts', name: 'struts2-spring-plugin', version:'2.3.32'
+    compile group: 'com.google.code.gson', name: 'gson', version:'2.3.1'
+    compile group: 'org.tuckey', name: 'urlrewritefilter', version:'4.0.4'
+    compile group: 'javax.transaction', name: 'jta', version:'1.1'
+    compile group: 'c3p0', name: 'c3p0', version:'0.9.1.2'
+    compile group: 'mysql', name: 'mysql-connector-java', version:'5.1.6'
+    compile group: 'dom4j', name: 'dom4j', version:'1.6.1'
+    compile group: 'javax.mail', name: 'javax.mail-api', version:'1.5.5'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version:'2.5'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version:'2.5'
+    compile group: 'com.belerweb', name: 'pinyin4j', version:'2.5.0'
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version:'1.5.6'
+    compile group: 'org.ocpsoft.prettytime', name: 'prettytime', version:'3.2.3.Final'
+    compile group: 'org.hibernate', name: 'hibernate-core', version:'5.0.6.Final'
+    compile group: 'org.mozilla', name: 'rhino', version:'1.7.7'
+    compile group: 'antlr', name: 'antlr', version:'2.7.7'
+    compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version:'3.1.0'
+
+    compile fileTree(dir: 'src/main/webapp/WEB-INF/lib', include: ['*.jar'] )
+}
+
+
+gretty{
+    httpPort = 8080
+    contextPath = '/'
+    fastReload = true
+    scanInterval = 1
+    // debugSuspend = false
+}
